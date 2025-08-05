@@ -45,4 +45,71 @@ class Rectangle : public Base_class {
 
 class Circle : public Base_class {
  public: 
- Circle(double rr){...
+ Circle(double rr){
+  radius = rr;
+ }
+ void findArea() {
+  std::cout << "Area of circle is " << (M_PI * radius * radius) << std::endl;
+ }
+ void perimeter() {
+  std::cout << "Perimeter of cicle is " << (2.0 * M_PI * radius) << std::endl;
+ }
+};
+
+class DTriangle : public Triangle {
+ public: 
+ DTriangle(){
+  base = 10; height = 2; depth = 3;
+ }
+ void findArea() {
+  std::cout << "Volume of 3D Triangle is " << (0.5 * base * height * depth) << std::endl;
+ }
+};
+
+class DRectangle : public Rectangle {
+ public: 
+ DRectangle(){
+  width = 5; length = 10; depth = 3;
+ }
+ void findArea() {
+  std::cout << "Volume of 3D Rectangle is " << (width * length * depth) << std::endl;
+ }
+};
+
+class DCircle : public Circle {
+ public: 
+ DCircle(double rr, int dd) : Circle(rr){
+  depth = dd;
+ }
+ void findArea() {
+  std::cout << "Volume of 3D Circle is " << (M_PI * radius * radius * depth) << std::endl;
+ }
+};
+
+int main() {
+ Triangle tr;
+ tr.findArea();
+ tr.perimeter();
+ 
+ Rectangle rec;
+ rec.findArea();
+ rec.perimeter();
+ 
+ Circle cr(10);
+ cr.findArea();
+ cr.perimeter();
+ 
+ DTriangle tr3;
+ tr3.findArea();
+ tr3.perimeter();
+ 
+ DRectangle rec3;
+ rec3.findArea();
+ rec3.perimeter();
+ 
+ DCircle cr3(10, 5);
+ cr3.findArea();
+ cr3.perimeter();
+
+ return 0;
+}
